@@ -14,4 +14,5 @@ export function loadEventListeners() {
   pokemonImage.addEventListener("mouseover", onPokemonImageMouseIn);
   pokemonImage.addEventListener("mouseout", onPokemonImageMouseOut);
   poketype.addEventListener("click", onPoketypeClick);
+  poketype.addEventListener("touch", onPoketypeClick);
 }

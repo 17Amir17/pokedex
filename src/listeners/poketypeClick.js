@@ -1,4 +1,6 @@
 import { getPokemonsOfType } from "../networking/pokemonApi.js";
+import { handleModal } from "../dom/updateTypeModal.js";
+
 export async function onPoketypeClick(event) {
   if (event.target.classList.contains("type")) {
     const type = event.target.dataset.type;
@@ -7,10 +9,9 @@ export async function onPoketypeClick(event) {
       const pokemon = response.data.pokemon;
       const pokemonNames = [];
       pokemon.forEach((pkmon) => {
-        console.log(pkmon);
         pokemonNames.unshift(pkmon.pokemon.name);
       });
-      console.log(pokemonNames);
+      handleModal(pokemonNames);
     } catch (error) {
       alert(error);
     }
