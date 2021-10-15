@@ -10,13 +10,17 @@ export function displayPokemon(pokemon) {
   pokeName.innerText = cap(pokemon.name);
   pokeHeight.innerText = pokemon.height;
   pokeWeight.innerText = pokemon.weight;
-  pokeType.innerText = getPokemonTypesString(pokemon.type);
+  pokeType.innerHTML = getPokemonTypesString(pokemon.type);
 }
+
+const getPokemonTypeHtml = (type) => {
+  return `<span class = "type ${type}">${cap(type)}</span>`;
+};
 
 const getPokemonTypesString = (types) => {
   let typeString = "";
   types.forEach((type) => {
-    typeString += cap(type.type.name) + " ";
+    typeString += getPokemonTypeHtml(type.type.name) + "\n";
   });
   return typeString;
 };
