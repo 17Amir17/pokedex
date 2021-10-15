@@ -1,30 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pokedex</title>
-    <link rel="stylesheet" href="styles.css">
-    <meta name="description" content="Client-side app illustrating fetch and axios">
-    <meta name="author" content="Denise Case">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css" rel="stylesheet">  
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <meta name="description" content="Pokedex" />
+    <meta name="author" content="Amir Angel" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="d-flex justify-content-center"><h1>My Pokedex</h1></div>
 
-</head>
-<body >
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Pokemon Name or Number"
+              aria-label="pokemon-name"
+              aria-describedby="basic-addon2"
+            />
+            <div class="input-group-append">
+              <button
+                id="search"
+                class="btn btn-outline-secondary"
+                type="button"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
- 
-  <!-- add axios with cdn - still no build tools needed -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="./index.js"></script>
-</body>
+    <div id="pokemon-grid" class="container">
+      <div class="row">
+        <div class="col">PokeCard</div>
+        <div class="col">PokeDetails</div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
+
+    <!-- add axios with cdn - still no build tools needed -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./src/index.js"></script>
+  </body>
 </html>
