@@ -2,10 +2,14 @@ import { getPokeomByNameOrId } from "../networking/pokemonApi.js";
 import { displayPokemon, hideGrid, showGrid } from "../dom/pokemonGrid.js";
 import { showLoader, hideloader } from "../dom/loader.js";
 import { setCurrentPokemon } from "../storage/pokemonData.js";
+import { formatSearchString } from "../dom/stringFormatter.js";
+
 export function onSearchClick(event) {
   hideGrid();
   showLoader();
-  const searchInput = document.querySelector("#poke-input").value.toLowerCase();
+  const searchInput = formatSearchString(
+    document.querySelector("#poke-input").value
+  );
   getPokeomByNameOrId(searchInput).then(gotPokemon, failedToGetPokemon);
 }
 

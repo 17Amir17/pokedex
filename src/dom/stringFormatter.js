@@ -9,3 +9,8 @@ export function formatName(name) {
   nameArr.forEach((n) => (formattedName += cap(n) + " "));
   return formattedName;
 }
+
+export function formatSearchString(query) {
+  let queryArr = query.toLowerCase().split(" ");
+  return queryArr.join("-");
+}
