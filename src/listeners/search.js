@@ -13,8 +13,8 @@ export function onSearchClick(event) {
   getPokeomByNameOrId(searchInput).then(gotPokemon, failedToGetPokemon);
 }
 
-function gotPokemon(request) {
-  const pokemonDetails = request.data;
+function gotPokemon(response) {
+  const pokemonDetails = response;
   const pokemonData = {
     name: pokemonDetails.name,
     height: pokemonDetails.height,

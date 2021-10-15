@@ -6,7 +6,7 @@ export async function onPoketypeClick(event) {
     const type = event.target.dataset.type;
     try {
       const response = await getPokemonsOfType(type);
-      const pokemon = response.data.pokemon;
+      const pokemon = response.pokemon;
       const pokemonNames = [];
       pokemon.forEach((pkmon) => {
         pokemonNames.unshift(pkmon.pokemon.name);
