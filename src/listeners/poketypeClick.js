@@ -11,7 +11,7 @@ export async function onPoketypeClick(event) {
       pokemon.forEach((pkmon) => {
         pokemonNames.unshift(pkmon.pokemon.name);
       });
-      handleModal(pokemonNames);
+      handleModal(type, pokemonNames);
     } catch (error) {
       alert(error);
     }

@@ -1,0 +1,18 @@
+.pokemon-modal:hover {
+  cursor: pointer;
+}
+
+.pokemon-modal {
+  padding: 2px 4px 2px 4px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -o-border-radius: 6px;
+  font-size: 13px;
+  font-family: "helvetica neue", Helvetica, Verdana, sans-serif;
+  color: #fff;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
