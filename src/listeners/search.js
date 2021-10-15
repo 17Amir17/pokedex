@@ -25,6 +25,6 @@ function gotPokemon(request) {
 }
 
 function failedToGetPokemon(error) {
-  console.log(error);
+  alert(error);
   hideloader();
 }

@@ -1,3 +1,5 @@
+import { formatName, cap } from "./stringFormatter.js";
+
 const grid = document.querySelector("#pokemon-grid");
 const pokeImage = grid.querySelector("#poke-image");
 const pokeName = grid.querySelector(".pokename");
@@ -7,7 +9,7 @@ const pokeType = grid.querySelector(".poketype");
 
 export function displayPokemon(pokemon) {
   pokeImage.src = pokemon.frontImage;
-  pokeName.innerText = cap(pokemon.name);
+  pokeName.innerText = formatName(pokemon.name);
   pokeHeight.innerText = pokemon.height;
   pokeWeight.innerText = pokemon.weight;
   pokeType.innerHTML = getPokemonTypesString(pokemon.type);
@@ -26,10 +28,6 @@ const getPokemonTypesString = (types) => {
   });
   return typeString;
 };
-
-function cap(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 export function showGrid() {
   grid.style.opacity = 1;

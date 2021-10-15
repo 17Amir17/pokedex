@@ -1,3 +1,5 @@
+import { formatName, cap } from "./stringFormatter.js";
+
 const modalTitle = document.querySelector("#type-modal-title");
 const modalBody = document.querySelector(".modal-body");
 
@@ -20,15 +22,3 @@ const getNameHtml = (type, name) => {
     name
   )}</p>\n`;
 };
-
-function cap(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function formatName(name) {
-  let nameArr = name.split("-");
-  let formattedName = "";
-  nameArr = nameArr.filter((e) => e !== "gmax");
-  nameArr.forEach((n) => (formattedName += cap(n) + " "));
-  return formattedName;
-}
