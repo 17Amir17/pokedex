@@ -14,7 +14,9 @@ export function displayPokemon(pokemon) {
 }
 
 const getPokemonTypeHtml = (type) => {
-  return `<span class = "type ${type}">${cap(type)}</span>`;
+  return `<span class = "type ${type}" data-type = "${type}">${cap(
+    type
+  )}</span>`;
 };
 
 const getPokemonTypesString = (types) => {
