@@ -49,10 +49,34 @@
       </div>
     </div>
 
-    <div id="pokemon-grid" class="container">
+    <div id="loader" hidden>
+      <img src="./images/loader.gif" />
+    </div>
+
+    <div id="pokemon-grid" class="container d-flex justify-content-center">
       <div class="row">
-        <div class="col">PokeCard</div>
-        <div class="col">PokeDetails</div>
+        <div class="col-sm">
+          <div class="card" style="width: 18rem">
+            <img
+              id="poke-image"
+              src="./images/pokeball.png"
+              class="img-thumbnail"
+              alt="picture of a pokemon"
+            />
+            <div class="card-body">
+              <h5 class="card-title pokename">Pokemon Name</h5>
+              <p class="card-text">
+                Height: <span class="pokeheight">1.8m</span>
+              </p>
+              <p class="card-text">
+                Weight: <span class="pokeweight">50kg</span>
+              </p>
+              <p class="card-text">
+                Type: <span class="poketype">Lightning</span>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

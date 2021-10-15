@@ -6,3 +6,8 @@
 #pokemon-grid {
   opacity: 0;
 }
+
+#loader {
+  display: flex;
+  justify-content: center;
+}
