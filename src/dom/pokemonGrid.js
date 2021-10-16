@@ -1,4 +1,6 @@
 import { formatName, cap } from "./stringFormatter.js";
+import { load } from "../threejs/handleScreen.js";
+import { showScreen, hideScreen } from "../threejs/handleScreen.js";
 
 const grid = document.querySelector("#pokemon-grid");
 const pokeImage = grid.querySelector("#poke-image");
@@ -8,7 +10,7 @@ const pokeWeight = grid.querySelector(".pokeweight");
 const pokeType = grid.querySelector(".poketype");
 
 export function displayPokemon(pokemon) {
-  pokeImage.src = pokemon.frontImage;
+  handleImageOrModel(pokemon);
   pokeName.innerText = formatName(pokemon.name);
   pokeHeight.innerText = pokemon.height;
   pokeWeight.innerText = pokemon.weight;
@@ -35,4 +37,27 @@ export function showGrid() {
 
 export function hideGrid() {
   grid.style.opacity = 0;
+}
+
+function handleImageOrModel(pokemon) {
+  //If I have model use model
+  if (pokemon.model) {
+    showScreen();
+    hideImage();
+    load(pokemon.model);
+  } else {
+    hideScreen();
+    showImage();
+    pokeImage.src = pokemon.frontImage;
+  }
+}
+
+function hideImage() {
+  pokeImage.hidden = true;
+  pokeImage.style.position = "absolute";
+}
+
+function showImage() {
+  pokeImage.hidden = false;
+  pokeImage.style.position = "initial";
 }

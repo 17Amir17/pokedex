@@ -1,15 +1,15 @@
-import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
-import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/OrbitControls.js';
-import {GLTFLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from "https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js";
+import { OrbitControls } from "https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/OrbitControls.js";
+import { GLTFLoader } from "https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/loaders/GLTFLoader.js";
 
-const threeDetails = {}
+const threeDetails = {};
 
-function main() {
-  const canvas = document.querySelector('#screen');
-  const renderer = new THREE.WebGLRenderer({canvas});
+export function main() {
+  const canvas = document.querySelector("#screen");
+  const renderer = new THREE.WebGLRenderer({ canvas });
 
   const fov = 45;
-  const aspect = 2;  // the canvas default
+  const aspect = 2; // the canvas default
   const near = 0.1;
   const far = 100;
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
@@ -24,18 +24,18 @@ function main() {
 
   const scene = new THREE.Scene();
   threeDetails.scene = scene;
-  scene.background = new THREE.Color('white');
+  scene.background = new THREE.Color("white");
 
   {
-    const skyColor = 0xB1E1FF;  // light blue
-    const groundColor = 0xB97A20;  // brownish orange
+    const skyColor = 0xb1e1ff; // light blue
+    const groundColor = 0xb97a20; // brownish orange
     const intensity = 1;
     const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
     scene.add(light);
   }
 
   {
-    const color = 0xFFFFFF;
+    const color = 0xffffff;
     const intensity = 1;
     const light = new THREE.DirectionalLight(color, intensity);
     light.position.set(5, 10, 2);
@@ -62,7 +62,7 @@ function main() {
     }
 
     renderer.render(scene, camera);
-    controls.update()
+    controls.update();
     requestAnimationFrame(render);
   }
 
@@ -70,37 +70,36 @@ function main() {
 }
 
 function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
-    const halfSizeToFitOnScreen = sizeToFitOnScreen * 0.5;
-    const halfFovY = THREE.MathUtils.degToRad(camera.fov * .5);
-    const distance = halfSizeToFitOnScreen / Math.tan(halfFovY)*2.5;
-    // compute a unit vector that points in the direction the camera is now
-    // in the xz plane from the center of the box
-    const direction = (new THREE.Vector3())
-        .subVectors(camera.position, boxCenter)
-        .multiply(new THREE.Vector3(1, 0, 1))
-        .normalize();
+  const halfSizeToFitOnScreen = sizeToFitOnScreen * 0.5;
+  const halfFovY = THREE.MathUtils.degToRad(camera.fov * 0.5);
+  const distance = (halfSizeToFitOnScreen / Math.tan(halfFovY)) * 2.5;
+  // compute a unit vector that points in the direction the camera is now
+  // in the xz plane from the center of the box
+  const direction = new THREE.Vector3()
+    .subVectors(camera.position, boxCenter)
+    .multiply(new THREE.Vector3(1, 0, 1))
+    .normalize();
 
-    // move the camera to a position distance units way from the center
-    // in whatever direction the camera was from the center already
-    camera.position.copy(direction.multiplyScalar(distance).add(boxCenter));
+  // move the camera to a position distance units way from the center
+  // in whatever direction the camera was from the center already
+  camera.position.copy(direction.multiplyScalar(distance).add(boxCenter));
 
-    // pick some near and far values for the frustum that
-    // will contain the box.
-    camera.near = boxSize / 100;
-    camera.far = boxSize * 100;
+  // pick some near and far values for the frustum that
+  // will contain the box.
+  camera.near = boxSize / 100;
+  camera.far = boxSize * 100;
 
-    camera.updateProjectionMatrix();
+  camera.updateProjectionMatrix();
 
-    // point the camera to look at the center of the box
-    camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
-  }
+  // point the camera to look at the center of the box
+  camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
+}
 
-function loadModel(model, scene, controls, camera)
-{
+function loadModel(model, scene, controls, camera, cb) {
   const gltfLoader = new GLTFLoader();
-  gltfLoader.load('Arbok.glb', (gltf) => {
+  gltfLoader.load(model, (gltf) => {
     const root = gltf.scene;
-    root.name = 'model'
+    root.name = "model";
     scene.add(root);
 
     // compute the box that contains all the stuff
@@ -117,15 +116,22 @@ function loadModel(model, scene, controls, camera)
     controls.maxDistance = boxSize * 10;
     controls.target.copy(boxCenter);
     controls.update();
+    cb();
   });
 }
 
 //main();
 
-export function loadModel(model){
-    loadModel(model, threeDetails.scene, threeDetails.controls, threeDetails.camera)
+export function loadNewModel(model, cb) {
+  loadModel(
+    model,
+    threeDetails.scene,
+    threeDetails.controls,
+    threeDetails.camera,
+    cb
+  );
 }
-export function removeLoadedModel(){
-    let selectedObject = threeDetails.scene.getObjectByName('model');
-    threeDetails.scene.remove( selectedObject );
+export function removeLoadedModel() {
+  let selectedObject = threeDetails.scene.getObjectByName("model");
+  threeDetails.scene.remove(selectedObject);
 }

@@ -2,7 +2,8 @@ import { getPokeomByNameOrId } from "../networking/pokemonApi.js";
 import { displayPokemon, hideGrid, showGrid } from "../dom/pokemonGrid.js";
 import { showLoader, hideloader } from "../dom/loader.js";
 import { setCurrentPokemon } from "../storage/pokemonData.js";
-import { formatSearchString } from "../dom/stringFormatter.js";
+import { formatSearchString, formatForModel } from "../dom/stringFormatter.js";
+import { hasModel, models } from "../storage/modelData.js";
 
 export function onSearchClick(event) {
   hideGrid();
@@ -23,8 +24,9 @@ function gotPokemon(response) {
     frontImage: pokemonDetails.sprites.front_default,
     backImage: pokemonDetails.sprites.back_default,
   };
+  const modelName = formatForModel(pokemonData.name);
+  pokemonData.model = hasModel(modelName) ? models[modelName] : false;
   setCurrentPokemon(pokemonData);
-  hideloader();
   displayPokemon(pokemonData);
 }
 

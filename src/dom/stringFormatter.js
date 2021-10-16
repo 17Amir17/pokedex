@@ -14,3 +14,7 @@ export function formatSearchString(query) {
   let queryArr = query.toLowerCase().split(" ");
   return queryArr.join("-");
 }
+
+export function formatForModel(name) {
+  return name.toLowerCase().split("-")[0];
+}
