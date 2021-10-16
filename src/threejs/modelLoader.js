@@ -26,27 +26,6 @@ function main() {
   threeDetails.scene = scene;
   scene.background = new THREE.Color('white');
 
-//   {
-//     const planeSize = 40;
-
-//     const loader = new THREE.TextureLoader();
-//     const texture = loader.load('https://threejsfundamentals.org/threejs/resources/images/checker.png');
-//     texture.wrapS = THREE.RepeatWrapping;
-//     texture.wrapT = THREE.RepeatWrapping;
-//     texture.magFilter = THREE.NearestFilter;
-//     const repeats = planeSize / 2;
-//     texture.repeat.set(repeats, repeats);
-
-//     const planeGeo = new THREE.PlaneGeometry(planeSize, planeSize);
-//     const planeMat = new THREE.MeshPhongMaterial({
-//       map: texture,
-//       side: THREE.DoubleSide,
-//     });
-//     const mesh = new THREE.Mesh(planeGeo, planeMat);
-//     mesh.rotation.x = Math.PI * -.5;
-//     scene.add(mesh);
-//   }
-
   {
     const skyColor = 0xB1E1FF;  // light blue
     const groundColor = 0xB97A20;  // brownish orange
@@ -143,10 +122,10 @@ function loadModel(model, scene, controls, camera)
 
 //main();
 
-function loadModel(model){
+export function loadModel(model){
     loadModel(model, threeDetails.scene, threeDetails.controls, threeDetails.camera)
 }
-function removeLoadedModel(){
+export function removeLoadedModel(){
     let selectedObject = threeDetails.scene.getObjectByName('model');
     threeDetails.scene.remove( selectedObject );
 }
