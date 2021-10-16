@@ -1,5 +1,7 @@
 ## Pokedex Task
 ![pikacu](https://user-images.githubusercontent.com/36531255/137583117-c7e896e8-a1a1-495d-a6ac-4af63e552954.png)
+# Github Pages
+[Click here to check it out](https://17amir17.github.io/pokedex/)
 # Features:
 * 3D MODELS! - I implemented 3d models for over 100 pokemon using three.js and a repo I will link below
 * PokemonAPI usage - for pokemon I do no have models for I show an image from the pokemon api
