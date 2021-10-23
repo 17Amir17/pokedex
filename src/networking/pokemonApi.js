@@ -1,7 +1,7 @@
 const baseURL = 'https://pokeapi.co/api/v2/';
 const pokemonHeader = 'pokemon/';
 const typeHeader = 'type/';
-const customBaseURL = 'https://pokemon-api-cyber4s.herokuapp.com/';
+const customBaseURL = 'http://localHost:8080/';
 let customAPIHeader = { username: 'amir' };
 // AXIOUS API FUNCTIONS
 export async function getPokeomByNameOrId(pokemon) {
@@ -14,10 +14,16 @@ export async function getPokeomByNameOrId(pokemon) {
       });
     } else {
       response = await axios.get(`${customBaseURL}pokemon/query`, {
-        params: { query: pokemon },
+        params: { name: pokemon },
         headers: customAPIHeader,
       });
     }
+    const types = [];
+    response.data.types.forEach((type) => {
+      types.push(type.type.name);
+    });
+    response.data.types = types;
+    console.log(response.data.types);
     return response.data;
   } catch (error) {
     throw error;
@@ -57,6 +63,7 @@ export async function releasePokemon(id) {
       `${customBaseURL}pokemon/release/${id}`,
       { headers: customAPIHeader }
     );
+    console.log(response.data);
     return response.data;
   } catch (error) {
     alert('Pokemon does not exists 403');
