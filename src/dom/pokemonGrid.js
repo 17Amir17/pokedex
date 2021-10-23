@@ -1,13 +1,13 @@
-import { formatName, cap } from "./stringFormatter.js";
-import { load } from "../threejs/handleScreen.js";
-import { showScreen, hideScreen } from "../threejs/handleScreen.js";
+import { formatName, cap } from './stringFormatter.js';
+import { load } from '../threejs/handleScreen.js';
+import { showScreen, hideScreen } from '../threejs/handleScreen.js';
 
-const grid = document.querySelector("#pokemon-grid");
-const pokeImage = grid.querySelector("#poke-image");
-const pokeName = grid.querySelector(".pokename");
-const pokeHeight = grid.querySelector(".pokeheight");
-const pokeWeight = grid.querySelector(".pokeweight");
-const pokeType = grid.querySelector(".poketype");
+const grid = document.querySelector('#pokemon-grid');
+const pokeImage = grid.querySelector('#poke-image');
+const pokeName = grid.querySelector('.pokename');
+const pokeHeight = grid.querySelector('.pokeheight');
+const pokeWeight = grid.querySelector('.pokeweight');
+const pokeType = grid.querySelector('.poketype');
 
 export function displayPokemon(pokemon) {
   handleImageOrModel(pokemon);
@@ -24,9 +24,9 @@ const getPokemonTypeHtml = (type) => {
 };
 
 const getPokemonTypesString = (types) => {
-  let typeString = "";
+  let typeString = '';
   types.forEach((type) => {
-    typeString += getPokemonTypeHtml(type.type.name) + "\n";
+    typeString += getPokemonTypeHtml(type) + '\n';
   });
   return typeString;
 };
@@ -54,10 +54,10 @@ function handleImageOrModel(pokemon) {
 
 function hideImage() {
   pokeImage.hidden = true;
-  pokeImage.style.position = "absolute";
+  pokeImage.style.position = 'absolute';
 }
 
 function showImage() {
   pokeImage.hidden = false;
-  pokeImage.style.position = "initial";
+  pokeImage.style.position = 'initial';
 }
