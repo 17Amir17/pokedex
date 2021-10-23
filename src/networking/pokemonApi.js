@@ -2,7 +2,7 @@ const baseURL = 'https://pokeapi.co/api/v2/';
 const pokemonHeader = 'pokemon/';
 const typeHeader = 'type/';
 const customBaseURL = 'https://pokemon-api-cyber4s.herokuapp.com/';
-const customAPIHeader = { username: 'amir' };
+let customAPIHeader = { username: 'amir' };
 // AXIOUS API FUNCTIONS
 export async function getPokeomByNameOrId(pokemon) {
   try {
@@ -29,7 +29,6 @@ export async function getPokemonCollection() {
     const response = await axios.get(`${customBaseURL}pokemon/`, {
       headers: customAPIHeader,
     });
-    console.log(response);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -47,7 +46,7 @@ export async function catchPokemon(id, pokemonObj) {
     );
     return response.data;
   } catch (error) {
-    alert(error);
+    alert('Pokemon already exists 403');
     return false;
   }
 }
@@ -60,7 +59,7 @@ export async function releasePokemon(id) {
     );
     return response.data;
   } catch (error) {
-    alert(error);
+    alert('Pokemon does not exists 403');
     return false;
   }
 }
@@ -81,4 +80,8 @@ export async function getPokemonId(name) {
   } catch (error) {
     throw error;
   }
+}
+
+export function updateUsername(name) {
+  customAPIHeader.username = name;
 }

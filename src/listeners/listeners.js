@@ -8,6 +8,7 @@ import { onPoketypeClick } from './poketypeClick.js';
 import { modalBodyClick } from './modalBodyClick.js';
 import { onPrevClick, onNextClick } from './carouselButtons.js';
 import { onCatchClick, onReleaseClick } from './catchAndRelease.js';
+import { onUsernameClick } from './usernameButton.js';
 
 const pokemonImage = document.querySelector('#poke-image');
 const poketype = document.querySelector('.poketype');
@@ -16,7 +17,7 @@ const prevButton = document.querySelector('#prev-button');
 const nextButton = document.querySelector('#next-button');
 const catchButton = document.querySelector('#catch');
 const releaseButton = document.querySelector('#release');
-
+const usernameButton = document.querySelector('#username-button');
 export function loadEventListeners() {
   search.addEventListener('click', onSearchClick);
   pokemonImage.addEventListener('load', onPokemonImageLoad);
@@ -30,4 +31,5 @@ export function loadEventListeners() {
   nextButton.addEventListener('click', onNextClick);
   catchButton.addEventListener('click', onCatchClick);
   releaseButton.addEventListener('click', onReleaseClick);
+  usernameButton.addEventListener('click', onUsernameClick);
 }

@@ -16,7 +16,6 @@ export function onSearchClick(event) {
 
 function gotPokemon(response) {
   const pokemonDetails = response;
-  console.log(pokemonDetails);
   //reformat response
   const pokemonData = {
     name: pokemonDetails.name,
@@ -27,7 +26,6 @@ function gotPokemon(response) {
     backImage: pokemonDetails.back_pic,
     abilities: pokemonDetails.abilities,
   };
-  console.log(pokemonData);
   const modelName = formatForModel(pokemonData.name);
   pokemonData.model = hasModel(modelName) ? models[modelName] : false;
   setCurrentPokemon(pokemonData);

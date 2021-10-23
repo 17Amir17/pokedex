@@ -19,7 +19,6 @@ function createCarouselItem(pokemonDetails, first) {
   const item = document.createElement('div');
   if (first) item.setAttribute('class', 'carousel-item active');
   else item.setAttribute('class', 'carousel-item');
-  console.log(pokemonDetails);
   if (pokemonDetails.model) {
     const canvas = document.createElement('canvas');
     canvas.setAttribute('id', `${pokemonDetails.name}-model`);
