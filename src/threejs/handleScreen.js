@@ -1,9 +1,9 @@
 import { hideloader } from "../dom/loader.js";
 import { showGrid } from "../dom/pokemonGrid.js";
-import { models } from "../storage/modelData.js";
-import { loadNewModel, removeLoadedModel, main } from "./modelLoader.js";
+import { ThreeDModel } from "./threeScreen.js";
 
 const screen = document.querySelector("#screen");
+let mainModel;
 export function hideScreen() {
   screen.style.position = "absolute";
   screen.hidden = true;
@@ -20,12 +20,12 @@ function getModelPath(name) {
 }
 
 export function initThree() {
-  main();
+  mainModel = new ThreeDModel(screen);
 }
 
 export function load(model) {
-  removeLoadedModel();
-  loadNewModel(getModelPath(model), onModelLoad);
+  mainModel.removeModel();
+  mainModel.loadModel(getModelPath(model), onModelLoad);
 }
 
 function onModelLoad() {
