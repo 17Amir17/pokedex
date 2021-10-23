@@ -51,6 +51,24 @@
           </div>
         </div>
       </div>
+      <div class="row d-flex justify-content-center">
+        <div class="input-group mb-3 user-input">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Username"
+            aria-label="Recipient's username"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="username-button"
+          >
+            Set Username
+          </button>
+        </div>
+      </div>
     </div>
 
     <div id="loader" hidden>
@@ -60,7 +78,7 @@
     <div id="pokemon-grid" class="container">
       <div class="row">
         <div class="col-sm">
-          <div class="card" style="width: 18rem; margin: auto">
+          <div class="card" style="width: 20rem; margin: auto">
             <canvas id="screen"></canvas>
             <img
               id="poke-image"
@@ -79,9 +97,20 @@
               <p class="card-text">
                 Type: <span class="poketype">Lightning</span>
               </p>
+              <p class="d-flex flex-row">
+                <button id="catch" class="btn btn-primary" type="submit">
+                  Catch
+                </button>
+                <button id="release" class="btn btn-primary" type="submit">
+                  Release
+                </button>
+              </p>
             </div>
           </div>
         </div>
+      </div>
+      <div class="row d-flex justify-content-center" style="margin: 1em">
+        <h1>Your Collection!</h1>
       </div>
       <div class="row" style="margin-top: 1em">
         <div class="col-sm d-flex justify-content-center">

@@ -11,3 +11,11 @@
   display: flex;
   justify-content: center;
 }
+#username-button {
+  margin: 0 0 0 1em;
+  padding: 0 1em 0 1em;
+}
+
+.user-input {
+  width: 30% !important;
+}
