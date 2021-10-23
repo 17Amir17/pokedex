@@ -30,7 +30,7 @@ export async function getPokemonCollection() {
       headers: customAPIHeader,
     });
     console.log(response);
-    return response;
+    return response.data;
   } catch (error) {
     console.log(error);
   }

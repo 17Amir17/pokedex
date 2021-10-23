@@ -57,10 +57,10 @@
       <img src="./assets/images/loader.gif" />
     </div>
 
-    <div id="pokemon-grid" class="container d-flex justify-content-center">
+    <div id="pokemon-grid" class="container">
       <div class="row">
         <div class="col-sm">
-          <div class="card" style="width: 18rem">
+          <div class="card" style="width: 18rem; margin: auto">
             <canvas id="screen"></canvas>
             <img
               id="poke-image"
@@ -80,6 +80,43 @@
                 Type: <span class="poketype">Lightning</span>
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 1em">
+        <div class="col-sm d-flex justify-content-center">
+          <div
+            id="carouselExampleControls"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div id="pokemon-carousel" class="carousel-inner"></div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev"
+              id="prev-button"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="next"
+              id="next-button"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </div>
