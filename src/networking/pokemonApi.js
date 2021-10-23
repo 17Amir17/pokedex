@@ -23,15 +23,18 @@ export async function getPokeomByNameOrId(pokemon) {
     throw error;
   }
 }
-// export async function getPokeomByNameOrId(pokemon) {
-//   try {
-//     if (!pokemon) throw 'Search Query Empty';
-//     const response = await axios.get(baseURL + pokemonHeader + pokemon);
-//     return response;
-//   } catch (error) {
-//     throw error;
-//   }
-// }
+
+export async function getPokemonCollection() {
+  try {
+    const response = await axios.get(`${customBaseURL}pokemon/`, {
+      headers: customAPIHeader,
+    });
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 export async function getPokemonsOfType(type) {
   try {
