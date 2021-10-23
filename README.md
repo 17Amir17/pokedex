@@ -1,33 +1,22 @@
 ## Pokedex Task
+![pikacu](https://user-images.githubusercontent.com/36531255/137583117-c7e896e8-a1a1-495d-a6ac-4af63e552954.png)
+![gif](https://github.com/17Amir17/pokedex/blob/custon-back/assets/images/ezgif.com-gif-maker.gif)
+# Github Pages
+[Click here to check it out](https://17amir17.github.io/pokedex/)
+# Features:
+* 3D MODELS! - I implemented 3d models for over 100 pokemon using three.js and a repo I will link below
+* PokemonAPI usage - for pokemon I do no have models for I show an image from the pokemon api
+* Pokemon types - each pokemon has its types displayed, click them to see their family!
+* Responsive - Works on mobile with touch support!
+* Catch and release pokemon
+* Multiple users!
 
-In this task you will build your own pokédex!
-Read,learn and use https://pokeapi.co/
+# Downside of using three.js
+* Since it has to load models which may be complex, it can take some time to load for instance my Bulbasaur model is 50mb! so it takes a while especially on mobile
+* Models are hard to make, and usually take a whole team to make them, if the models were not open source I couldn't have done this
 
-# Setup:
-
-- Create a new repo called "pokedex" using the Skelton defined here
-- Work on your brunch
-- Create a PR and submit it in the classroom
-
-Use axios to fetch the pokeAPI
-
-# Pokedex
-
-- Read about cross origion and way to handle it
-- Use [this](https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino?hl=en) chrome extenstion for unblock cross origion when working on local file
-- Show Pockemon name height weight and image on search id
-- Make the image change to back_default on hover
-- Support search by name ([HINT](https://pokeapi.co/docs/v2#pokemon))
-- Add not found message if the API return it (case the pockemon doesnt exist)
-- Show list of types names for each pockemon
-- On click on one of the pockemon types show list of all the pokemons names that related to this type ([HINT](https://pokeapi.co/docs/v2#type:~:text=lines)))
-- On Click on one of the pockemon name change the pokedex context by changing the input value to the name of the pockemon
-
-# Bonus:
-
-1. Use fetch insted of axios in two functions
-2. Use bootstrap for efficient and easy design
-3. Add design and features of your choice
-
-Feel free to get inspired to start working from the [demo](https://murmuring-cove-95500.herokuapp.com/):
+# Resources
+* [pokemon api](https://pokeapi.co/)
+* [ThreeJs tutorial and template](https://www.youtube.com/watch?v=1TeMXIWRrqE&t=16s)
+* [3d Pokemon models](https://github.com/PoGo-Devs/PoGo-3D-Assets)
 
