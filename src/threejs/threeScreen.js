@@ -1,7 +1,6 @@
-import * as THREE from "https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js";
-import { OrbitControls } from "https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/OrbitControls.js";
-import { GLTFLoader } from "https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/loaders/GLTFLoader.js";
-
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 export class ThreeDModel {
   constructor(canvas) {
     const renderer = new THREE.WebGLRenderer({ canvas });
@@ -20,7 +19,7 @@ export class ThreeDModel {
     const renderControls = this.controls;
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color("white");
+    this.scene.background = new THREE.Color('white');
     const renderScene = this.scene;
 
     {
@@ -96,7 +95,7 @@ export class ThreeDModel {
     const gltfLoader = new GLTFLoader();
     gltfLoader.load(model, (gltf) => {
       const root = gltf.scene;
-      root.name = "model";
+      root.name = 'model';
       this.scene.add(root);
 
       // compute the box that contains all the stuff
@@ -118,7 +117,7 @@ export class ThreeDModel {
   }
 
   removeModel() {
-    let selectedObject = this.scene.getObjectByName("model");
+    let selectedObject = this.scene.getObjectByName('model');
     this.scene.remove(selectedObject);
   }
 }

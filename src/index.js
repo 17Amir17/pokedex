@@ -7,6 +7,7 @@ import {
   setCurrentUser,
 } from './storage/pokemonData.js';
 import { loadPokemon } from './dom/pokemonCarousel.js';
+import '../styles/styles.css';
 function showPikachu() {
   document.querySelector('#poke-input').value = 'pikachu';
   $('#search').click();
