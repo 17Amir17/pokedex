@@ -1,12 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/pokemTypes.css" />
+    <link rel="stylesheet" href="./styles/pokemonModal.css" />
+    <link rel="stylesheet" href="./styles/screen.css" />
+    <link rel="icon" href="./assets/images/favicon.png" />
+    <meta name="description" content="Pokedex" />
+    <meta name="author" content="Amir Angel" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/css/mdb.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="d-flex justify-content-center"><h1>My Pokedex</h1></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Pokemon Name or Number"
+              aria-label="pokemon-name"
+              aria-describedby="basic-addon2"
+              id="poke-input"
+            />
+            <div class="input-group-append">
+              <button
+                id="search"
+                class="btn btn-outline-secondary"
+                type="button"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loader" hidden>
+      <img src="./assets/images/loader.gif" />
+    </div>
+
+    <div id="pokemon-grid" class="container d-flex justify-content-center">
+      <div class="row">
+        <div class="col-sm">
+          <div class="card" style="width: 18rem">
+            <canvas id="screen"></canvas>
+            <img
+              id="poke-image"
+              src="./assets/images/pokeball.png"
+              class="img-thumbnail"
+              alt="picture of a pokemon"
+            />
+            <div class="card-body">
+              <h5 class="card-title pokename">Pokemon Name</h5>
+              <p class="card-text">
+                Height: <span class="pokeheight">1.8m</span>
+              </p>
+              <p class="card-text">
+                Weight: <span class="pokeweight">50kg</span>
+              </p>
+              <p class="card-text">
+                Type: <span class="poketype">Lightning</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="type-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLongTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="type-modal-title">Modal title</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
+
+    <!-- add axios with cdn - still no build tools needed -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="./src/index.js"></script>
+  </body>
 </html>
